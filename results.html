@@ -18,6 +18,9 @@
             <div id="address1"></div>
             <div id="address2"></div>
         </div>
+        <span class="required-field">*</span>
+        <label for="password"><i>Your Secret Code</i></label>
+        <input type="password" title="6 Alphanumeric Character Passcode" pattern="[a-z A-Z 0-9]{6}">
     </main>
     <script type="text/javascript">
         // Grab the URL parameters
@@ -26,6 +29,7 @@
         // Determine whether the person won the contest at random
         let winner = Math.random() < 0.5 ? true : false
 
+        
         // Gather some of the data from the querystring
         let name = `${urlParams.get('firstname')} ${urlParams.get('lastname')}`
         let choice = urlParams.get('location') 
@@ -61,6 +65,7 @@
             document.getElementById('status-message').style.color = color || 'crimson'
             document.getElementById('small-print').textContent = `Extras (${extras.join(', ')}) must be requested upon arrival at your destination`
         }
+        
         else {
             document.getElementById('status-message').textContent = `Sorry, ${name}, You Didn't Win This Time!`
             document.getElementById('sub-message').textContent = `Maybe you'll get to ${choice} next time!`
